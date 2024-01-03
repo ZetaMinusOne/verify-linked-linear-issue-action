@@ -170,12 +170,9 @@ steps:
   - name: Test Local Action
     id: test-action
     uses: ./
-    with:
-      milliseconds: 1000
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  - name: Print Output
-    id: output
-    run: echo "${{ steps.test-action.outputs.time }}"
 ```
 
 For example workflow runs, check out the
