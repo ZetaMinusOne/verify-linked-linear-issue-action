@@ -1,9 +1,9 @@
 # Create a GitHub Action Using TypeScript
 
-[![GitHub Super-Linter](https://github.com/actions/typescript-action/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
-![CI](https://github.com/actions/typescript-action/actions/workflows/ci.yml/badge.svg)
-[![Check dist/](https://github.com/actions/typescript-action/actions/workflows/check-dist.yml/badge.svg)](https://github.com/actions/typescript-action/actions/workflows/check-dist.yml)
-[![CodeQL](https://github.com/actions/typescript-action/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/actions/typescript-action/actions/workflows/codeql-analysis.yml)
+[![GitHub Super-Linter](https://github.com/ZetaMinusOne/typescript-action/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
+![CI](https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/ci.yml/badge.svg)
+[![Check dist/](https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/check-dist.yml/badge.svg)](https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/check-dist.yml)
+[![CodeQL](https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/codeql-analysis.yml)
 [![Coverage](./badges/coverage.svg)](./badges/coverage.svg)
 
 Use this template to bootstrap the creation of a TypeScript action. :rocket:
@@ -176,7 +176,7 @@ steps:
 ```
 
 For example workflow runs, check out the
-[Actions tab](https://github.com/actions/typescript-action/actions)! :rocket:
+[Actions tab](https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions)! :rocket:
 
 ## Usage
 
@@ -197,7 +197,7 @@ steps:
 
   - name: Test Local Action
     id: test-action
-    uses: actions/typescript-action@v1 # Commit with the `v1` tag
+    uses: ZetaMinusOne/verify-linked-linear-issue-action@v1 # Commit with the `v1` tag
     with:
       milliseconds: 1000
 
