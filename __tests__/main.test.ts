@@ -11,9 +11,9 @@ import * as main from '../src/main'
 
 // Mock the action's main function
 const runMock = jest.spyOn(main, 'run')
-let createComment = jest.fn().mockImplementation();
+let createComment = jest.fn().mockImplementation()
 
-let mockData: any[] = [];
+let mockData: any[] = []
 const validData = [
   {
     performed_via_github_app: {
@@ -33,7 +33,7 @@ const invalidData = [
 ]
 
 jest.mock('@actions/github', () => {
-  const originalModule = jest.requireActual('@actions/github');
+  const originalModule = jest.requireActual('@actions/github')
 
   //Mock the default export and named export 'foo'
   return {
@@ -48,7 +48,7 @@ jest.mock('@actions/github', () => {
                 data: mockData
               }
             }),
-            createComment,
+            createComment
           }
         }
       } as any
@@ -64,15 +64,14 @@ jest.mock('@actions/github', () => {
         }
       }
     }
-  };
-});
+  }
+})
 
 // Mock the GitHub Actions core library
 let debugMock: jest.SpyInstance
 let errorMock: jest.SpyInstance
 let setFailedMock: jest.SpyInstance
 let noticeMock: jest.SpyInstance
-
 
 describe('action', () => {
   beforeEach(() => {
@@ -85,19 +84,21 @@ describe('action', () => {
   })
 
   it('successfully finds the linear ticket', async () => {
-    mockData = validData;
+    mockData = validData
     await main.run()
     expect(runMock).toHaveReturned()
 
     // Verify that all of the core library functions were called correctly
-    expect(debugMock).toHaveBeenNthCalledWith(1, 'Searching for Linear ticket link ...')
+    expect(debugMock).toHaveBeenNthCalledWith(
+      1,
+      'Searching for Linear ticket link ...'
+    )
     expect(noticeMock).toHaveBeenCalledWith('Found Linear ticket.')
     expect(errorMock).not.toHaveBeenCalled()
   })
-  
 
   it('sets a failed status', async () => {
-    mockData = invalidData;
+    mockData = invalidData
     await main.run()
     expect(runMock).toHaveReturned()
 
@@ -109,16 +110,13 @@ describe('action', () => {
     })
 
     // Verify that all of the core library functions were called correctly
-    expect(setFailedMock).toHaveBeenNthCalledWith(
-      1,
-      'No Linear ticket found.'
-    )
+    expect(setFailedMock).toHaveBeenNthCalledWith(1, 'No Linear ticket found.')
   })
 
-  it('requires a pull request', async() => {
-    mockData = validData;
-    const context = require('@actions/github').context;
-    context.payload.pull_request = undefined;
+  it('requires a pull request', async () => {
+    mockData = validData
+    const context = require('@actions/github').context
+    context.payload.pull_request = undefined
     await main.run()
     expect(runMock).toHaveReturned()
 
