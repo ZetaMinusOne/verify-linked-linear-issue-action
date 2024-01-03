@@ -8,12 +8,20 @@
 
 import * as core from '@actions/core'
 import * as main from '../src/main'
+import * as github from '@actions/github'
 
 // Mock the action's main function
 const runMock = jest.spyOn(main, 'run')
-let createComment = jest.fn().mockImplementation()
+const createComment = jest.fn().mockImplementation()
 
-let mockData: any[] = []
+type MockComment = {
+  performed_via_github_app: {
+    slug: string
+  }
+  body: string
+}
+
+let mockData: MockComment[] = []
 const validData = [
   {
     performed_via_github_app: {
@@ -51,7 +59,7 @@ jest.mock('@actions/github', () => {
             createComment
           }
         }
-      } as any
+      }
     }),
     context: {
       repo: {
@@ -115,8 +123,7 @@ describe('action', () => {
 
   it('requires a pull request', async () => {
     mockData = validData
-    const context = require('@actions/github').context
-    context.payload.pull_request = undefined
+    github.context.payload.pull_request = undefined
     await main.run()
     expect(runMock).toHaveReturned()
 
