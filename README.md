@@ -1,12 +1,9 @@
 # Verify Linked Linear Issue Action
 
-[![GitHub Super-Linter](https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/linter.yml/badge.svg)]
-(https://github.com/super-linter/super-linter)
+[![GitHub Super-Linter](https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
 ![CI](https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/ci.yml/badge.svg)
-[![Check dist/](https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/check-dist.yml/badge.svg)]
-(https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/check-dist.yml)
-[![CodeQL](https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/codeql-analysis.yml/badge.svg)]
-(https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/codeql-analysis.yml)
+[![Check dist/](https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/check-dist.yml/badge.svg)](https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/check-dist.yml)
+[![CodeQL](https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/ZetaMinusOne/verify-linked-linear-issue-action/actions/workflows/codeql-analysis.yml)
 [![Coverage](./badges/coverage.svg)](./badges/coverage.svg)
 
 A GitHub action that verifies your pull request contains a reference to a 
