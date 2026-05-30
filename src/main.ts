@@ -23,9 +23,13 @@ export async function run(): Promise<void> {
       repo: context.repo.repo
     })
 
+    const linearAppSlugs = ['linear', 'linear-code']
+
     const linearComment = comments.data.find(
       comment =>
-        comment.performed_via_github_app?.slug === 'linear' &&
+        linearAppSlugs.includes(
+          comment.performed_via_github_app?.slug ?? ''
+        ) &&
         (comment.body?.includes('href="https://linear.app/') ||
           comment.body?.includes('](https://linear.app/'))
     )

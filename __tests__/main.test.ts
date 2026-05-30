@@ -40,6 +40,15 @@ const validData2 = [
   }
 ]
 
+const validData3 = [
+  {
+    performed_via_github_app: {
+      slug: 'linear-code'
+    },
+    body: '<!-- linear-linkback -->\n<p><a href="https://linear.app/caspian-trade/issue/CAS-4946/test">CAS-4946 test</a></p>'
+  }
+]
+
 const invalidData = [
   {
     performed_via_github_app: {
@@ -120,6 +129,19 @@ describe('action', () => {
     expect(runMock).toHaveReturned()
 
     // Verify that all of the core library functions were called correctly
+    expect(debugMock).toHaveBeenNthCalledWith(
+      1,
+      'Searching for Linear ticket link ...'
+    )
+    expect(noticeMock).toHaveBeenCalledWith('Found Linear ticket.')
+    expect(errorMock).not.toHaveBeenCalled()
+  })
+
+  it('successfully finds the linear ticket from linear-code app', async () => {
+    mockData = validData3
+    await main.run()
+    expect(runMock).toHaveReturned()
+
     expect(debugMock).toHaveBeenNthCalledWith(
       1,
       'Searching for Linear ticket link ...'
