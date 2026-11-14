@@ -28957,8 +28957,10 @@ async function run() {
             owner: context.repo.owner,
             repo: context.repo.repo
         });
-        const linearComment = comments.data.find(comment => comment.performed_via_github_app?.slug === 'linear' &&
-            comment.body?.includes('href="https://linear.app/'));
+        const linearAppSlugs = ['linear', 'linear-code'];
+        const linearComment = comments.data.find(comment => linearAppSlugs.includes(comment.performed_via_github_app?.slug ?? '') &&
+            (comment.body?.includes('href="https://linear.app/') ||
+                comment.body?.includes('](https://linear.app/')));
         if (linearComment) {
             core.notice(`Found Linear ticket.`);
         }
